@@ -1,39 +1,10 @@
 # Your Next Store
 
-<div align="center">
-<table>
-<tr>
-<td>
-	<a href="https://yournextstore.com/discord"><img src="https://img.shields.io/discord/1206629600483082341?style=for-the-badge&logo=discord&logoColor=white&labelColor=%235865F2&color=%23555" alt="Join Discord" /></a>
-</td>
-<td>
-	<a href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fyournextstore%2Fyournextstore&env=ENABLE_EXPERIMENTAL_COREPACK,NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY,STRIPE_SECRET_KEY,STRIPE_CURRENCY&envDescription=Read%20more%20about%20required%20env%20variables%20in%20YNS&envLink=https%3A%2F%2Fgithub.com%2Fyournextstore%2Fyournextstore%2Ftree%2Fupcoming%3Ftab%3Dreadme-ov-file%23add-environmental-variables&project-name=yournextstore&repository-name=yournextstore&demo-title=Your%20Next%20Store&demo-description=A%20Next.js%20boilerplate%20for%20building%20your%20online%20store%20instantly%3A%20simple%2C%20quick%2C%20powerful.&demo-url=https%3A%2F%2Fdemo.yournextstore.com%2F&demo-image=https%3A%2F%2Fyournextstore.com%2Fdemo.png"><img src="https://vercel.com/button" alt="Deploy with Vercel" /></a>
-</td>
-<td>
-<a href="https://www.producthunt.com/posts/your-next-store?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-your&#0045;next&#0045;store">
-	<picture>
-		<source
-			media="(prefers-color-scheme: dark)"
-			srcSet="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=459751&theme=dark"
-		/>
-		<img
-			src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=459751&theme=light"
-			height="36"
-			alt="Your&#0032;Next&#0032;Store - E&#0045;Commerce&#0032;with&#0032;Stripe&#0032;as&#0032;the&#0032;backend | Product Hunt"
-		/>
-	</picture>
-</a>
-</td>
-</tr>
-</table>
-
-👉 [demo.yournextstore.com](https://demo.yournextstore.com/) 👈
-
-</div>
-
 ## Demo
 
-https://github.com/user-attachments/assets/64197310-29bd-4dd3-a736-1494340e20e8
+[Live Demo](https://demo.yournextstore.com/)
+
+[Video Demo] (https://github.com/user-attachments/assets/64197310-29bd-4dd3-a736-1494340e20e8)
 
 ## Prerequisites
 
@@ -168,10 +139,6 @@ To deploy on Vercel, click the following button, set up your GitHub repository a
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fyournextstore%2Fyournextstore&env=ENABLE_EXPERIMENTAL_COREPACK,NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY,STRIPE_SECRET_KEY,STRIPE_CURRENCY&envDescription=Read%20more%20about%20required%20env%20variables%20in%20YNS&envLink=https%3A%2F%2Fgithub.com%2Fyournextstore%2Fyournextstore%2Ftree%2Fupcoming%3Ftab%3Dreadme-ov-file%23add-environmental-variables&project-name=yournextstore&repository-name=yournextstore&demo-title=Your%20Next%20Store&demo-description=A%20Next.js%20boilerplate%20for%20building%20your%20online%20store%20instantly%3A%20simple%2C%20quick%2C%20powerful.&demo-url=https%3A%2F%2Fdemo.yournextstore.com%2F&demo-image=https%3A%2F%2Fyournextstore.com%2Fdemo.png)
 
-### Your Own VPS
-
-Description coming soon.
-
 ### Docker
 
 To deploy on Docker, follow these steps:
@@ -180,13 +147,3 @@ To deploy on Docker, follow these steps:
 2. Set the variable DOCKER=1 in .env
 3. Execute `pnpm run docker:build`.
 4. After that, you can start the container with `pnpm run docker:run`.
-
-## That's all
-
-YNS evolves each day, and we actively seek feedback on what to improve. If you have any questions or problems, don't hesitate to get in touch with us on our Discord Server.
-
-## FAQ
-
-### Sometimes, you use `structuredClone` to pass data from server to client components. Why?
-
-Only certain types of data can be passed from the server to the client directly. Data from Stripe SDK often contains class instances. To work around this, we use `structuredClone` to eliminate them and pass just plain old objects to the client.
