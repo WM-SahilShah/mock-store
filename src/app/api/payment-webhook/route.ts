@@ -1,23 +1,4 @@
-// Define the ProductMetadata type based on the expected structure
-export type ProductMetadata = {
-	id: string;
-	name: string;
-	stock: number;
-	metadata: {
-		stock: number;
-		// Define other fields in the metadata as per your needs
-	};
-};
-
-// Define the expected structure of the metadata
-export type Metadata = {
-	[key: string]: string | number | boolean; // Adjust this according to your needs
-};
-
-// Response type for the API when fetching products from metadata
-export type ProductsFromMetadataResponse = {
-	products: ProductMetadata[]; // Array of products
-};
+import type { Metadata, ProductMetadata, ProductsFromMetadataResponse } from "@/lib/custom-payment";
 
 /**
  * Fetch products based on metadata from your backend or custom source.

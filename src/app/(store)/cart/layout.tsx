@@ -5,7 +5,7 @@ import type { ReactNode } from "react";
 
 import { CartEmpty } from "@/ui/checkout/cart-empty";
 import { CartSummaryTable } from "@/ui/checkout/cart-summary-table";
-import { StripeElementsContainer } from "@/ui/checkout/stripe-elements-container";
+import { StripeElementsContainer } from "@/ui/checkout/payment-elements-container";
 
 export default async function CartLayout({ children }: { children: ReactNode }) {
 	const cart = await getCartFromCookiesAction();
