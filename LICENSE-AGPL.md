@@ -618,7 +618,7 @@ to attach them to the start of each source file to most effectively
 state the exclusion of warranty; and each file should have at least
 the “copyright” line and a pointer to where the full notice is found.
 
-    Your Next Store – simple and fast commerce in Next.js with Stripe as the backend
+    Your Next Store – simple and fast commerce in Next.js
     Copyright (C) 2024  Your Next Store, Inc.
 
     This program is free software: you can redistribute it and/or modify

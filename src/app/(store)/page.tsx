@@ -37,7 +37,7 @@ export default async function Home() {
 						className="rounded"
 						height={450}
 						width={450}
-						src="https://files.stripe.com/links/MDB8YWNjdF8xT3BaeG5GSmNWbVh6bURsfGZsX3Rlc3RfaDVvWXowdU9ZbWlobUIyaHpNc1hCeDM200NBzvUjqP"
+						src="https://media.gettyimages.com/id/1445144555/photo/green-ceramic-tea-cup-on-white-background.jpg?s=2048x2048&w=gi&k=20&c=-dsyDMYYegu-Tnw3-qUwQBaEuD475BSCECYo2wAgdJY="
 						style={{
 							objectFit: "cover",
 						}}
