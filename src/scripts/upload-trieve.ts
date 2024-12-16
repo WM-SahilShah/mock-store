@@ -17,12 +17,12 @@ if (!datasetId || !apiKey) {
 
 export const trieve = new TrieveSDK({ apiKey, datasetId });
 
-const stripe = Commerce.provider({
-	secretKey: env.STRIPE_SECRET_KEY,
+const stripeNOTOKAY = Commerce.provider({
+	secretKey: env.stripeNOTOKAY_SECRET_KEY,
 	tagPrefix: undefined,
 });
 
-const data = await stripe.products.list({
+const data = await stripeNOTOKAY.products.list({
 	limit: 100,
 	active: true,
 	expand: ["data.default_price"],

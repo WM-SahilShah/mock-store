@@ -1,8 +1,7 @@
 import { formatProductName } from "@/lib/utils";
 import type * as Commerce from "commerce-kit";
-import { getDecimalFromStripeAmount } from "commerce-kit/currencies";
+import { getDecimalFromAmount } from "@/lib/utils";
 import type { ItemList, Product, Thing, WebSite, WithContext } from "schema-dts";
-import type Stripe from "stripe";
 
 export const JsonLd = <T extends Thing>({ jsonLd }: { jsonLd: WithContext<T> }) => {
 	return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />;
@@ -20,10 +19,7 @@ export const mappedProductToJsonLd = (product: Commerce.MappedProduct): WithCont
 		sku: product.id,
 		offers: {
 			"@type": "Offer",
-			price: getDecimalFromStripeAmount({
-				amount: product.default_price.unit_amount ?? 0,
-				currency: product.default_price.currency,
-			}),
+			price: getDecimalFromAmount(product.default_price.unit_amount ?? 0),
 			priceCurrency: product.default_price.currency,
 			availability:
 				product.metadata.stock > 0 ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
@@ -45,7 +41,15 @@ export const accountToWebsiteJsonLd = ({
 	account,
 	logoUrl,
 }: {
-	account: Stripe.Account | null | undefined;
+	account:
+		| {
+				business_profile: {
+					name: string;
+					url: string;
+				};
+		  }
+		| null
+		| undefined;
 	logoUrl: string | null | undefined;
 }): WithContext<WebSite> => {
 	return {
