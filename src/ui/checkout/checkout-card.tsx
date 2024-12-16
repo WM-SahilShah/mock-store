@@ -8,7 +8,7 @@ import mastercard from "@/images/payments/mastercard.svg";
 import p24 from "@/images/payments/p24.svg";
 import visa from "@/images/payments/visa.svg";
 import { isDefined } from "@/lib/utils";
-import { StripePayment } from "@/ui/checkout/stripe-payment";
+import { Payment } from "@/ui/checkout/payment";
 import * as Commerce from "commerce-kit";
 
 export const paymentMethods = {
@@ -31,7 +31,7 @@ export const CheckoutCard = async ({ cart }: { cart: Commerce.Cart }) => {
 		<section className="max-w-md pb-12">
 			<h2 className="text-3xl font-bold leading-none tracking-tight">{t("checkoutTitle")}</h2>
 			<p className="mb-4 mt-2 text-sm text-muted-foreground">{t("checkoutDescription")}</p>
-			<StripePayment
+			<Payment
 				shippingRateId={cart.cart.metadata.shippingRateId}
 				shippingRates={structuredClone(shippingRates)}
 				allProductsDigital={cart.lines.every((line) =>
