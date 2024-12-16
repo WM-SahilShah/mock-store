@@ -2,25 +2,20 @@
 
 import type { ReactNode } from "react";
 
-// Define the PaymentContainer to replace Stripe Elements
 export const PaymentContainer = ({
 	children,
 }: {
 	children: ReactNode;
 }) => {
-	// No need for locale or clientSecret handling
-	const options = {
-		appearance: {
-			variables: {
-				fontFamily: `system-ui, sans-serif`,
-				fontSizeSm: "0.875rem",
-				colorDanger: "hsl(0 84.2% 60.2%)",
-			},
-		},
+	const paymentContainerStyle = {
+		fontFamily: `system-ui, sans-serif`,
+		fontSize: "0.875rem",
+		color: "inherit",
+		colorDanger: "hsl(0 84.2% 60.2%)",
 	};
 
 	return (
-		<div className="payment-container" style={{ ...options.appearance.variables }}>
+		<div className="payment-container" style={{ ...paymentContainerStyle }}>
 			{children}
 		</div>
 	);
