@@ -1,12 +1,9 @@
 import "@/app/globals.css";
-import { env, publicUrl } from "@/env.mjs";
+import { publicUrl } from "@/env.mjs";
 import { IntlClientProvider } from "@/i18n/client";
 import { getLocale, getMessages, getTranslations } from "@/i18n/server";
 import { Toaster } from "@/ui/shadcn/sonner";
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
-import Script from "next/script";
 
 export const generateMetadata = async (): Promise<Metadata> => {
 	const t = await getTranslations("Global.metadata");
@@ -30,16 +27,6 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
 					</div>
 					<Toaster position="top-center" offset={10} />
 				</IntlClientProvider>
-				{env.NEXT_PUBLIC_UMAMI_WEBSITE_ID && (
-					<Script
-						async
-						src="/stats/script.js"
-						data-host-url={publicUrl + "/stats"}
-						data-website-id={env.NEXT_PUBLIC_UMAMI_WEBSITE_ID}
-					/>
-				)}
-				<SpeedInsights />
-				<Analytics />
 			</body>
 		</html>
 	);

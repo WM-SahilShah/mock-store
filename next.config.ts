@@ -15,10 +15,7 @@ const nextConfig: NextConfig = {
 		},
 	},
 	images: {
-		remotePatterns: [
-			{ hostname: "d1wqzb5bdbcre6.cloudfront.net" },
-			{ hostname: "*.blob.vercel-storage.com" },
-		],
+		remotePatterns: [{ hostname: "d1wqzb5bdbcre6.cloudfront.net" }],
 		formats: ["image/avif", "image/webp"],
 	},
 	transpilePackages: ["next-mdx-remote", "commerce-kit"],

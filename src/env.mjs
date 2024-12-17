@@ -9,7 +9,6 @@ export const env = createEnv({
 		TRIEVE_API_KEY: z.string().optional(),
 	},
 	client: {
-		// Can be provided via env or parameters to Commerce Kit, thus optional
 		NEXT_PUBLIC_URL: z.string().url().optional(),
 		NEXT_PUBLIC_NEWSLETTER_ENDPOINT: z.string().optional(),
 		NEXT_PUBLIC_LANGUAGE: z.string().optional().default("en-US"),

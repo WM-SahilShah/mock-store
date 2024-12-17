@@ -113,11 +113,3 @@ export async function setQuantity({
 	}
 	await Commerce.cartSetQuantity({ productId, cartId, quantity });
 }
-
-export async function commerceGPTRevalidateAction() {
-	const cart = await getCartCookieJson();
-	if (cart) {
-		console.log("Revalidating cart", cart);
-		revalidateTag(`cart-${cart.id}`);
-	}
-}
