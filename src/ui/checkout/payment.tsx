@@ -17,7 +17,7 @@ import { Label } from "@/ui/shadcn/label";
 import { AlertCircle, Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { type ChangeEvent, type FormEventHandler, useState, useTransition } from "react";
-import { AddressElement } from "@stripe/react-stripe-js";
+import { AddressElement } from "@/ui/checkout/address";
 import type * as Commerce from "commerce-kit";
 
 export const Payment = ({
@@ -171,16 +171,15 @@ const PaymentForm = ({
 				}}
 				onChange={(e) => {
 					if (!sameAsShipping) return;
-
 					if (!isAddressReady) return;
 
 					setBillingAddressValues({
-						name: e.value.name,
-						city: e.value.address.city,
-						country: e.value.address.country,
-						line1: e.value.address.line1,
+						name: e.value.name || "",
+						city: e.value.address.city || "",
+						country: e.value.address.country || "",
+						line1: e.value.address.line1 || "",
 						line2: e.value.address.line2 ?? null,
-						postalCode: e.value.address.postal_code,
+						postalCode: e.value.address.postal_code || "",
 						state: e.value.address.state ?? null,
 						phone: e.value.phone ?? null,
 						taxId: "",

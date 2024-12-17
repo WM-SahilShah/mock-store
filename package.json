@@ -36,8 +36,6 @@
 		"@radix-ui/react-tooltip": "1.1.5",
 		"@splinetool/react-spline": "4.0.0",
 		"@splinetool/runtime": "1.9.48",
-		"@stripe/react-stripe-js": "3.1.0",
-		"@stripe/stripe-js": "5.3.0",
 		"@t3-oss/env-nextjs": "0.11.1",
 		"@vercel/analytics": "1.4.1",
 		"@vercel/blob": "0.27.0",
@@ -58,7 +56,6 @@
 		"schema-dts": "1.1.2",
 		"server-only": "0.0.1",
 		"sonner": "1.7.1",
-		"stripe": "17.4.0",
 		"tailwind-merge": "2.5.5",
 		"tailwindcss-animate": "1.0.7",
 		"trieve-ts-sdk": "0.0.43",
@@ -109,8 +106,7 @@
 			"allowedVersions": {
 				"next": "15.1.1-canary.2",
 				"react": "^19.0.0",
-				"react-dom": "^19.0.0",
-				"@stripe/stripe-js": ">=5.0.0"
+				"react-dom": "^19.0.0"
 			},
 			"allowAny": ["@types/react", "@types/react-dom"]
 		}

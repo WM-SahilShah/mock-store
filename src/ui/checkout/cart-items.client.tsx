@@ -1,12 +1,11 @@
-import { setQuantity } from "@/actions/cart-actions";
-import { formatMoney } from "@/lib/utils";
+import { useRef } from "react";
+import { useFormStatus } from "react-dom";
 import { Button } from "@/ui/shadcn/button";
-import { useElements } from "@stripeNOTOKAY/react-stripe-js";
+import { useCart } from "@/ui/checkout/useCart";
 import clsx from "clsx";
 import { Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { useRef } from "react";
-import { useFormStatus } from "react-dom";
+import { formatMoney } from "@/lib/utils";
 
 export const CartItemQuantity = ({
 	quantity,
@@ -20,7 +19,7 @@ export const CartItemQuantity = ({
 	onChange: (args: { productId: string; action: "INCREASE" | "DECREASE" }) => void;
 }) => {
 	const { pending } = useFormStatus();
-
+	const { updateCart } = useCart();
 	const stateRef = useRef<{
 		timer: ReturnType<typeof setTimeout> | null;
 		promise: PromiseWithResolvers<void>;
@@ -28,7 +27,6 @@ export const CartItemQuantity = ({
 
 	const isPending = pending && stateRef.current !== null;
 
-	const elements = useElements();
 	const router = useRouter();
 
 	const formAction = async (action: "INCREASE" | "DECREASE") => {
@@ -36,9 +34,7 @@ export const CartItemQuantity = ({
 
 		const doWork = async () => {
 			try {
-				const modifier = action === "INCREASE" ? 1 : -1;
-				await setQuantity({ cartId, productId, quantity: quantity + modifier });
-				await elements?.fetchUpdates();
+				updateCart(cartId, productId, action);
 				router.refresh();
 				stateRef.current?.promise.resolve();
 			} catch (error) {
@@ -57,6 +53,7 @@ export const CartItemQuantity = ({
 				promise: Promise.withResolvers(),
 			};
 		}
+
 		return stateRef.current.promise.promise;
 	};
 
@@ -73,10 +70,10 @@ export const CartItemQuantity = ({
 				type="submit"
 				disabled={quantity <= 0}
 				className="group aspect-square p-0"
-				formAction={() => formAction("DECREASE")}
+				onClick={() => formAction("DECREASE")}
 			>
 				<span className="flex h-4 w-4 items-center justify-center rounded-full bg-neutral-100 pb-0.5 font-bold leading-none text-black transition-colors group-hover:bg-neutral-500 group-hover:text-white">
-					–
+					-
 				</span>
 			</Button>
 			<span className="inline-block min-w-8 px-1 text-center tabular-nums">{quantity}</span>
@@ -85,7 +82,7 @@ export const CartItemQuantity = ({
 				size="sm"
 				type="submit"
 				className="group aspect-square p-0"
-				formAction={() => formAction("INCREASE")}
+				onClick={() => formAction("INCREASE")}
 			>
 				<span className="flex h-4 w-4 items-center justify-center rounded-full bg-neutral-100 pb-0.5 font-bold leading-none text-black transition-colors group-hover:bg-neutral-500 group-hover:text-white">
 					+

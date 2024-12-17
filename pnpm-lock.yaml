@@ -72,12 +72,6 @@ importers:
       '@splinetool/runtime':
         specifier: 1.9.48
         version: 1.9.48
-      '@stripe/react-stripe-js':
-        specifier: 3.1.0
-        version: 3.1.0(@stripe/stripe-js@5.3.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      '@stripe/stripe-js':
-        specifier: 5.3.0
-        version: 5.3.0
       '@t3-oss/env-nextjs':
         specifier: 0.11.1
         version: 0.11.1(typescript@5.7.2)(zod@3.24.1)
@@ -138,9 +132,6 @@ importers:
       sonner:
         specifier: 1.7.1
         version: 1.7.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      stripe:
-        specifier: 17.4.0
-        version: 17.4.0
       tailwind-merge:
         specifier: 2.5.5
         version: 2.5.5
@@ -1773,17 +1764,6 @@ packages:
 
   '@splinetool/runtime@1.9.48':
     resolution: {integrity: sha512-G0PH03heEbGm8l7PhW5AeR/h2K0tFsip9WnXuToy3e9dTAP2C+Zff4kr2O0owNOwfngwlfrNNaOwj1tr1dIKtQ==}
-
-  '@stripe/react-stripe-js@3.1.0':
-    resolution: {integrity: sha512-bUu/aSI4i/pyTEkfRKKCmhHO9C41UsloNi+snYFGbN+HresxZZofbBG70omVVvf9REGOmaDONc0JhgDvUUa0Sg==}
-    peerDependencies:
-      '@stripe/stripe-js': ^1.44.1 || ^2.0.0 || ^3.0.0 || ^4.0.0 || ^5.0.0
-      react: '>=16.8.0 && <=^19.0.0'
-      react-dom: '>=16.8.0 && <=^19.0.0'
-
-  '@stripe/stripe-js@5.3.0':
-    resolution: {integrity: sha512-lNCZwCak1Yk0x2ecQO+4kcV7MwxAXapfgmLEh5SIoczc/r4GWAmcfyXZu3AAle+MAVW9HBe6f7tywuxJtYomcg==}
-    engines: {node: '>=12.16'}
 
   '@swc/counter@0.1.3':
     resolution: {integrity: sha512-e2BR4lsJkkRlKZ/qCHPw9ZaSxc0MVUd7gtbtaB7aMvHeJVYe8sOB8DBZkP2DtISHGSku9sCK6T6cnY0CtXrOCQ==}
@@ -4261,10 +4241,6 @@ packages:
     resolution: {integrity: sha512-4gB8na07fecVVkOI6Rs4e7T6NOTki5EmL7TUduTs6bu3EdnSycntVJ4re8kgZA+wx9IueI2Y11bfbgwtzuE0KQ==}
     engines: {node: '>=0.10.0'}
 
-  stripe@17.4.0:
-    resolution: {integrity: sha512-sQQGZguPxe7/QYXJKtDpfzT2OAH9F8nyE2SOsVdTU793iiU33/dpaKgWaJEGJm8396Yy/6NvTLblgdHlueGLhA==}
-    engines: {node: '>=12.*'}
-
   style-to-object@0.4.4:
     resolution: {integrity: sha512-HYNoHZa2GorYNyqiCaBgsxvcJIn7OHq6inEga+E6Ke3m5JkoqpQbnFssk4jwe+K7AhGa2fcha4wSOf1Kn01dMg==}
 
@@ -6144,15 +6120,6 @@ snapshots:
     dependencies:
       on-change: 4.0.2
       semver-compare: 1.0.0
-
-  '@stripe/react-stripe-js@3.1.0(@stripe/stripe-js@5.3.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
-    dependencies:
-      '@stripe/stripe-js': 5.3.0
-      prop-types: 15.8.1
-      react: 19.0.0
-      react-dom: 19.0.0(react@19.0.0)
-
-  '@stripe/stripe-js@5.3.0': {}
 
   '@swc/counter@0.1.3': {}
 
@@ -8820,11 +8787,6 @@ snapshots:
       min-indent: 1.0.1
 
   strip-json-comments@2.0.1: {}
-
-  stripe@17.4.0:
-    dependencies:
-      '@types/node': 22.10.2
-      qs: 6.13.1
 
   style-to-object@0.4.4:
     dependencies:

@@ -6,7 +6,6 @@ import { paymentMethods } from "@/ui/checkout/checkout-card";
 import { ClearCookieClientComponent } from "@/ui/checkout/clear-cookie-client-component";
 import { Markdown } from "@/ui/markdown";
 import { Badge } from "@/ui/shadcn/badge";
-import type { PaymentIntent } from "@stripe/stripe-js";
 import * as Commerce from "commerce-kit";
 import type { Metadata } from "next";
 import Image from "next/image";
@@ -261,7 +260,16 @@ export default async function OrderDetailsPage(props: {
 	);
 }
 
-const PaymentStatus = async ({ status }: { status: PaymentIntent.Status }) => {
+export type PaymentIntentStatus =
+	| "canceled"
+	| "processing"
+	| "requires_action"
+	| "requires_capture"
+	| "requires_confirmation"
+	| "requires_payment_method"
+	| "succeeded";
+
+const PaymentStatus = async ({ status }: { status: PaymentIntentStatus }) => {
 	const t = await getTranslations("/order.paymentStatus");
 	const statusToVariant = {
 		canceled: "destructive",
@@ -271,7 +279,7 @@ const PaymentStatus = async ({ status }: { status: PaymentIntent.Status }) => {
 		requires_confirmation: "destructive",
 		requires_payment_method: "destructive",
 		succeeded: "default",
-	} satisfies Record<PaymentIntent.Status, ComponentProps<typeof Badge>["variant"]>;
+	} satisfies Record<PaymentIntentStatus, ComponentProps<typeof Badge>["variant"]>;
 
 	return (
 		<Badge className="ml-2 capitalize" variant={statusToVariant[status]}>
