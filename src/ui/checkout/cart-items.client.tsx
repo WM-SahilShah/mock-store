@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { useFormStatus } from "react-dom";
 import { Button } from "@/ui/shadcn/button";
-import { useCart } from "@/ui/checkout/useCart";
+import { useCart } from "@/lib/hooks";
 import clsx from "clsx";
 import { Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
